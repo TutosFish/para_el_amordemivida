@@ -20,20 +20,19 @@ body {
    ESCENAS
 ========================= */
 
-.scene {
-    position: fixed;
-    inset: 0;
+/* =========================
+   SCROLL EN CELULAR
+========================= */
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@media (max-width: 600px) {
 
-    opacity: 0;
-    visibility: hidden;
+    .scene {
+        overflow-y: auto;
+        overflow-x: hidden;
+        align-items: flex-start;
+        padding: 40px 15px;
+    }
 
-    transition:
-        opacity 1.5s ease,
-        visibility 1.5s ease;
 }
 
 .scene.active {
