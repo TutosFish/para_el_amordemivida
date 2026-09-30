@@ -4,6 +4,13 @@ const chapter2 = document.getElementById("chapter2");
 const chapter3 = document.getElementById("chapter3");
 const chapter4 = document.getElementById("chapter4");
 
+const letterSection =
+    document.getElementById("letterSection");
+
+const photosSection =
+    document.getElementById("photosSection");
+
+
 const startButton =
     document.getElementById("startButton");
 
@@ -16,9 +23,6 @@ const professionalButton =
 const messageButton =
     document.getElementById("messageButton");
 
-const messages =
-    document.querySelectorAll(".message");
-
 const believeMessage =
     document.getElementById("believeMessage");
 
@@ -27,20 +31,17 @@ const believeButton =
 
 const letterButton =
     document.getElementById("letterButton");
-    /* =========================
-   CAPÍTULO 4 → CARTA
-========================= */
 
-letterButton.addEventListener("click", () => {
+const photosButton =
+    document.getElementById("photosButton");
 
-    alert("Aquí comenzará la carta ❤️");
-
-});
+const messages =
+    document.querySelectorAll(".message");
 
 
-/* =========================
+/* =====================================================
    CAMBIAR DE ESCENA
-========================= */
+===================================================== */
 
 function changeScene(currentScene, nextScene) {
 
@@ -50,14 +51,19 @@ function changeScene(currentScene, nextScene) {
 
         nextScene.classList.add("active");
 
-    }, 500);
+        /*
+         * Cuando entramos a una escena nueva,
+         * regresamos su scroll al principio.
+         */
+        nextScene.scrollTop = 0;
 
+    }, 500);
 }
 
 
-/* =========================
+/* =====================================================
    INTRO → CAPÍTULO 1
-========================= */
+===================================================== */
 
 startButton.addEventListener("click", () => {
 
@@ -66,9 +72,9 @@ startButton.addEventListener("click", () => {
 });
 
 
-/* =========================
+/* =====================================================
    CAPÍTULO 1 → CAPÍTULO 2
-========================= */
+===================================================== */
 
 nextButton.addEventListener("click", () => {
 
@@ -77,9 +83,9 @@ nextButton.addEventListener("click", () => {
 });
 
 
-/* =========================
+/* =====================================================
    CAPÍTULO 2 → CAPÍTULO 3
-========================= */
+===================================================== */
 
 professionalButton.addEventListener("click", () => {
 
@@ -88,17 +94,22 @@ professionalButton.addEventListener("click", () => {
 });
 
 
-/* =========================
-   MENSAJES DEL CAPÍTULO 3
-========================= */
+/* =====================================================
+   CAPÍTULO 3
+   MENSAJES
+===================================================== */
 
 let currentMessage = 0;
 
 messageButton.addEventListener("click", () => {
 
-    messages[currentMessage].classList.remove(
-        "active-message"
-    );
+    if (currentMessage < messages.length) {
+
+        messages[currentMessage].classList.remove(
+            "active-message"
+        );
+
+    }
 
     currentMessage++;
 
@@ -112,6 +123,10 @@ messageButton.addEventListener("click", () => {
     }
 
 
+    /*
+     * Cuando aparece:
+     * "Porque estás aprendiendo."
+     */
     if (currentMessage === messages.length - 1) {
 
         messageButton.textContent =
@@ -120,6 +135,10 @@ messageButton.addEventListener("click", () => {
     }
 
 
+    /*
+     * Después de mostrar el último mensaje,
+     * aparece "Yo creo en ti."
+     */
     if (currentMessage >= messages.length) {
 
         messageButton.style.display = "none";
@@ -131,9 +150,9 @@ messageButton.addEventListener("click", () => {
 });
 
 
-/* =========================
+/* =====================================================
    CAPÍTULO 3 → CAPÍTULO 4
-========================= */
+===================================================== */
 
 believeButton.addEventListener("click", () => {
 
@@ -141,19 +160,10 @@ believeButton.addEventListener("click", () => {
 
 });
 
-/* =========================
+
+/* =====================================================
    CAPÍTULO 4 → CARTA
-========================= */
-
-const letterSection =
-    document.getElementById("letterSection");
-
-const photosSection =
-    document.getElementById("photosSection");
-
-const photosButton =
-    document.getElementById("photosButton");
-
+===================================================== */
 
 letterButton.addEventListener("click", () => {
 
@@ -162,9 +172,9 @@ letterButton.addEventListener("click", () => {
 });
 
 
-/* =========================
+/* =====================================================
    CARTA → FOTOS
-========================= */
+===================================================== */
 
 photosButton.addEventListener("click", () => {
 
