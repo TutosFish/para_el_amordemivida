@@ -24,16 +24,7 @@ body {
    SCROLL EN CELULAR
 ========================= */
 
-@media (max-width: 600px) {
 
-    .scene {
-        overflow-y: auto;
-        overflow-x: hidden;
-        align-items: flex-start;
-        padding: 40px 15px;
-    }
-
-}
 
 .scene.active {
     opacity: 1;
@@ -1495,6 +1486,93 @@ button:hover {
     color: white;
     font-size: 16px;
     cursor: pointer;
+}
+
+
+/* =================================
+   ESCENAS LARGAS EN CELULAR
+================================= */
+
+@media (max-width: 600px) {
+
+    .scene {
+        overflow: hidden;
+    }
+
+    /* Capítulos que necesitan desplazamiento */
+    #chapter1,
+    #chapter2,
+    #chapter3,
+    #chapter4,
+    #letterSection,
+    #photosSection {
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+    }
+
+    #chapter1 .chapter-content,
+    #chapter2 .professional-content,
+    #chapter3 .doubt-content,
+    #chapter4 .proud-content,
+    #letterSection .letter-content,
+    #photosSection .photos-content {
+
+        min-height: 100%;
+        padding-top: 50px;
+        padding-bottom: 50px;
+
+    }
+
+
+}
+@media (max-width: 600px) {
+
+    #chapter1,
+    #chapter2,
+    #chapter3,
+    #chapter4,
+    #letterSection,
+    #photosSection {
+        scrollbar-width: none;
+    }
+
+    #chapter1::-webkit-scrollbar,
+    #chapter2::-webkit-scrollbar,
+    #chapter3::-webkit-scrollbar,
+    #chapter4::-webkit-scrollbar,
+    #letterSection::-webkit-scrollbar,
+    #photosSection::-webkit-scrollbar {
+        display: none;
+    }
+
+}
+/* =========================
+   FOTOS FINALES - CELULAR
+========================= */
+
+.photo-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.photo-card {
+    width: 75%;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+.photo-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 260px;
+    object-fit: contain;
+    border-radius: 12px;
 }
 
 #letterButton span {
